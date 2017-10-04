@@ -13,7 +13,7 @@ let bio = {
     location: "Ogden"
   },
   welcomeMessage: "Passionate about using software and technology to better us all.",
-  skills: ["JavaScript", "HTML5", "CSS3", "React", "Node.js"],
+  skills: ["JavaScript", " HTML5", " CSS3", " React", " Node.js"],
   bioPic: "images/tyson.jpg"
 }
 
@@ -37,4 +37,5 @@ $("#header").prepend(formattedRole)
             .append(formattedGithub)
             .append(formattedTwitter)
             .append(formattedLocation)
+            .append(HTMLskillsStart)
             .append(formattedSkills);
