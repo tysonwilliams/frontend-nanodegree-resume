@@ -54,7 +54,6 @@ const formattedEmail = HTMLemail.replace("%data%", bio.contactInfo.email);
 const formattedGithub = HTMLgithub.replace("%data%", bio.contactInfo.github);
 const formattedTwitter = HTMLtwitter.replace("%data%", bio.contactInfo.twitter);
 const formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
-//const formattedSkills = HTMLskills.replace("%data%", bio.skills);
 const formattedWorkLocation = HTMLworkLocation.replace("%data%", work.location);
 const formattedEducationName = HTMLschoolName.replace("%data%", education.name);
 
@@ -80,8 +79,6 @@ if (bio.skills.length > 0) {
   formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
   $("#skills-h3").append(formattedSkill);
 }
-
-//$("#skills-h3").append(formattedSkills);
                  
 $("#workExperience").append(HTMLworkStart);
 $(".work-entry").append(formattedWorkLocation);
