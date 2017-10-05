@@ -10,15 +10,15 @@ let bio = {
     email: "tyson.j.williams@gmail.com",
     github: "tysonwilliams",
     twitter: "@TnaciousTyson",
-    location: "Ogden"
+    location: "Ogden, UT"
   },
   welcomeMessage: "Passionate about using software and technology to better us all.",
   skills: ["JavaScript", " HTML5", " CSS3", " React", " Node.js"],
   bioPic: "images/tyson.jpg"
 }
 
-const formattedName = HTMLheaderName.replace("%data%", "Tyson Williams");
 const formattedRole = HTMLheaderRole.replace("%data%", "Software Developer");
+const formattedName = HTMLheaderName.replace("%data%", "Tyson Williams");
 const formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 const formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 const formattedMobile = HTMLmobile.replace("%data%", bio.contactInfo.mobile);
@@ -27,6 +27,7 @@ const formattedGithub = HTMLgithub.replace("%data%", bio.contactInfo.github);
 const formattedTwitter = HTMLtwitter.replace("%data%", bio.contactInfo.twitter);
 const formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
 const formattedSkills = HTMLskills.replace("%data%", bio.skills);
+
 
 $("#header").prepend(formattedRole)
             .prepend(formattedName)
@@ -37,5 +38,6 @@ $("#header").prepend(formattedRole)
             .append(formattedGithub)
             .append(formattedTwitter)
             .append(formattedLocation)
-            .append(HTMLskillsStart)
-            .append(formattedSkills);
+            .append(HTMLskillsStart);
+
+$("#skills-h3").append(formattedSkills);
