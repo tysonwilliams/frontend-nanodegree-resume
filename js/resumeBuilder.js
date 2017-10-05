@@ -66,8 +66,11 @@ $("#header").prepend(formattedRole)
             .append(formattedEmail)
             .append(formattedGithub)
             .append(formattedTwitter)
-            .append(formattedLocation)
-            .append(HTMLskillsStart);
+            .append(formattedLocation);
+
+if (bio.skills) {
+  $("#header").append(HTMLskillsStart);
+}
 
 $("#skills-h3").append(formattedSkills);
                  
