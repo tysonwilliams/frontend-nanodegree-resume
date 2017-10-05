@@ -18,10 +18,14 @@ let bio = {
 }
 
 let work = {
+  jobs: [
+    {
 employer: "Tyson Software",
 title: "Junior Software Developer",
 dates: "March 2017 - Present",
 location: "Ogden, UT"
+    }
+  ]
 };
 
 let education = {
@@ -54,7 +58,6 @@ const formattedEmail = HTMLemail.replace("%data%", bio.contactInfo.email);
 const formattedGithub = HTMLgithub.replace("%data%", bio.contactInfo.github);
 const formattedTwitter = HTMLtwitter.replace("%data%", bio.contactInfo.twitter);
 const formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
-const formattedWorkLocation = HTMLworkLocation.replace("%data%", work.location);
 const formattedEducationName = HTMLschoolName.replace("%data%", education.name);
 
 $("#header").prepend(formattedRole)
@@ -79,9 +82,15 @@ if (bio.skills.length > 0) {
   formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
   $("#skills-h3").append(formattedSkill);
 }
-                 
-$("#workExperience").append(HTMLworkStart);
-$(".work-entry").append(formattedWorkLocation);
+
+for (let job of work.jobs) {
+  $("#workExperience").append(HTMLworkStart);
+
+  let formattedWorkEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+  let formattedWorkTitle = HTMLworkTitle.replace("%data%", job.title);
+  let formattedEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
+  $(".work-entry:last").append(formattedEmployerTitle);
+}
 
 $("#education").append(HTMLschoolStart);
 $(".education-entry").append(formattedEducationName);
