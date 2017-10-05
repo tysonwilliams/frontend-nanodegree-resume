@@ -13,7 +13,7 @@ let bio = {
     location: "Ogden, UT"
   },
   welcomeMessage: "Passionate about using software and technology to better us all.",
-  skills: ["JavaScript", " HTML5", " CSS3", " React", " Node.js"],
+  skills: ["JavaScript", " HTML5", " CSS3", " React"],
   bioPic: "images/tyson.jpg"
 }
 
@@ -54,7 +54,7 @@ const formattedEmail = HTMLemail.replace("%data%", bio.contactInfo.email);
 const formattedGithub = HTMLgithub.replace("%data%", bio.contactInfo.github);
 const formattedTwitter = HTMLtwitter.replace("%data%", bio.contactInfo.twitter);
 const formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
-const formattedSkills = HTMLskills.replace("%data%", bio.skills);
+//const formattedSkills = HTMLskills.replace("%data%", bio.skills);
 const formattedWorkLocation = HTMLworkLocation.replace("%data%", work.location);
 const formattedEducationName = HTMLschoolName.replace("%data%", education.name);
 
@@ -68,11 +68,20 @@ $("#header").prepend(formattedRole)
             .append(formattedTwitter)
             .append(formattedLocation);
 
-if (bio.skills) {
+if (bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
+
+  let formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+  $("#skills-h3").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+  $("#skills-h3").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+  $("#skills-h3").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+  $("#skills-h3").append(formattedSkill);
 }
 
-$("#skills-h3").append(formattedSkills);
+//$("#skills-h3").append(formattedSkills);
                  
 $("#workExperience").append(HTMLworkStart);
 $(".work-entry").append(formattedWorkLocation);
