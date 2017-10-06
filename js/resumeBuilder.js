@@ -21,9 +21,10 @@ let work = {
   jobs: [
     {
 employer: "Tyson Software",
-title: "Junior Software Developer",
+title: "Software Developer",
 dates: "March 2017 - Present",
-location: "Ogden, UT"
+location: "Ogden, UT",
+description: "Writing software for clients using mainly HTML5, CSS3, and JavaScript."
     }
   ]
 };
@@ -90,6 +91,12 @@ for (let job of work.jobs) {
   let formattedWorkTitle = HTMLworkTitle.replace("%data%", job.title);
   let formattedEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
   $(".work-entry:last").append(formattedEmployerTitle);
+
+  let formattedWorkDates = HTMLworkDates.replace("%data%", job.dates);
+  $(".work-entry:last").append(formattedWorkDates);
+
+  let formattedWorkDescription = HTMLworkDescription.replace("%data%", job.description);
+  $(".work-entry:last").append(formattedWorkDescription);
 }
 
 $("#education").append(HTMLschoolStart);
