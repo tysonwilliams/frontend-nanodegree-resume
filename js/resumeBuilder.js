@@ -20,11 +20,11 @@ let bio = {
 let work = {
   jobs: [
     {
-employer: "Tyson Software",
-title: "Software Developer",
-dates: "March 2017 - Present",
-location: "Ogden, UT",
-description: "Writing software for clients using mainly HTML5, CSS3, and JavaScript."
+      employer: "Tyson Software",
+      title: "Software Developer",
+      dates: "March 2017 - Present",
+      location: "Ogden, UT",
+      description: "Writing software for clients using mainly HTML5, CSS3, and JavaScript."
     }
   ]
 };
@@ -62,14 +62,14 @@ const formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.locatio
 const formattedEducationName = HTMLschoolName.replace("%data%", education.name);
 
 $("#header").prepend(formattedRole)
-            .prepend(formattedName)
-            .append(formattedBioPic)
-            .append(formattedWelcomeMessage)
-            .append(formattedMobile)
-            .append(formattedEmail)
-            .append(formattedGithub)
-            .append(formattedTwitter)
-            .append(formattedLocation);
+  .prepend(formattedName)
+  .append(formattedBioPic)
+  .append(formattedWelcomeMessage)
+  .append(formattedMobile)
+  .append(formattedEmail)
+  .append(formattedGithub)
+  .append(formattedTwitter)
+  .append(formattedLocation);
 
 if (bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
@@ -84,20 +84,24 @@ if (bio.skills.length > 0) {
   $("#skills-h3").append(formattedSkill);
 }
 
-for (let job of work.jobs) {
-  $("#workExperience").append(HTMLworkStart);
+function displayWork() {
+  for (let job of work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
 
-  let formattedWorkEmployer = HTMLworkEmployer.replace("%data%", job.employer);
-  let formattedWorkTitle = HTMLworkTitle.replace("%data%", job.title);
-  let formattedEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
-  $(".work-entry:last").append(formattedEmployerTitle);
+    let formattedWorkEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+    let formattedWorkTitle = HTMLworkTitle.replace("%data%", job.title);
+    let formattedEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
+    $(".work-entry:last").append(formattedEmployerTitle);
 
-  let formattedWorkDates = HTMLworkDates.replace("%data%", job.dates);
-  $(".work-entry:last").append(formattedWorkDates);
+    let formattedWorkDates = HTMLworkDates.replace("%data%", job.dates);
+    $(".work-entry:last").append(formattedWorkDates);
 
-  let formattedWorkDescription = HTMLworkDescription.replace("%data%", job.description);
-  $(".work-entry:last").append(formattedWorkDescription);
+    let formattedWorkDescription = HTMLworkDescription.replace("%data%", job.description);
+    $(".work-entry:last").append(formattedWorkDescription);
+  }
 }
+
+displayWork();
 
 $("#education").append(HTMLschoolStart);
 $(".education-entry").append(formattedEducationName);
