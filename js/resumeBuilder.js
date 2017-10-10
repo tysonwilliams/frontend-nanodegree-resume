@@ -30,6 +30,7 @@ let work = {
 };
 
 let education = {
+  schools: [{
   name: "University of Utah",
   location: "SLC, UT",
   degree: "B.S.",
@@ -37,6 +38,7 @@ let education = {
   minor: "Military Science",
   dates: [2014],
   url: "http://eccles.utah.edu/programs/undergraduate/academics/majors/entrepreneurship/"
+  }]
 };
 
 let projects = {
@@ -80,7 +82,7 @@ const formattedEmail = HTMLemail.replace("%data%", bio.contactInfo.email);
 const formattedGithub = HTMLgithub.replace("%data%", bio.contactInfo.github);
 const formattedTwitter = HTMLtwitter.replace("%data%", bio.contactInfo.twitter);
 const formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
-const formattedEducationName = HTMLschoolName.replace("%data%", education.name);
+const formattedEducationName = HTMLschoolName.replace("%data%", education.schools[0].name);
 
 $("#header").prepend(formattedRole)
   .prepend(formattedName)
@@ -130,3 +132,5 @@ $("#education").append(HTMLschoolStart);
 $(".education-entry").append(formattedEducationName);
 
 //$("#main").append(internationalizeButton);
+
+$("#mapDiv").append(googleMap);
