@@ -45,9 +45,30 @@ let projects = {
       title: "SmartGym",
       dates: "2017",
       description: "Creating Smart IoT for gym managers and end-users!",
-      image: "iamges/smartgym.png"
+      images: "images/smartgym.png"
     }
-  ]
+  ],
+  display() {
+    for (let project of this.projects) {
+      $("#projects").append(HTMLprojectStart);
+
+      const formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.title);
+      $(".project-entry:last").append(formattedProjectTitle);
+
+      const formattedProjectDates = HTMLprojectDates.replace("%data%", project.dates);
+      $(".project-entry:last").append(formattedProjectDates);
+
+      const formattedProjectDescription = HTMLprojectDescription.replace("%data%", project.description);
+      $(".project-entry:last").append(formattedProjectDescription);
+
+      if (project.images.length > 0) {
+        for (let image of project.images) {
+          const formattedProjectImage = HTMLprojectImage.replace("%data%", project.image);
+          $(".project-entry:last").append(formattedProjectImage);
+        }
+      }
+    }
+  }
 }
 
 const formattedRole = HTMLheaderRole.replace("%data%", "Software Developer");
@@ -103,7 +124,9 @@ function displayWork() {
 
 displayWork();
 
+projects.display();
+
 $("#education").append(HTMLschoolStart);
 $(".education-entry").append(formattedEducationName);
 
-$("#main").append(internationalizeButton);
+//$("#main").append(internationalizeButton);
