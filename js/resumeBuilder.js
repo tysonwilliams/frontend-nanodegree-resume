@@ -105,3 +105,5 @@ displayWork();
 
 $("#education").append(HTMLschoolStart);
 $(".education-entry").append(formattedEducationName);
+
+$("#main").append(internationalizeButton);

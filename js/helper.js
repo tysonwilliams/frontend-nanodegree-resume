@@ -65,7 +65,14 @@ The Internationalize Names challenge found in the lesson Flow Control from JavaS
 $(document).ready(function() {
   $('button').click(function() {
     var $name = $('#name');
-    var iName = inName($name.text()) || function(){};
+    var iName = function inName() {
+      var bioName = bio.name;
+      var bioNameArray = bioName.split(" ");
+      var bioFirstName = bioNameArray[0];
+      var bioLastName = bioNameArray[1].toUpperCase();
+      
+      return bioFirstName + " " + bioLastName;
+    };
     $name.html(iName);
   });
 });
