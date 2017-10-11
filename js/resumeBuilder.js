@@ -64,10 +64,8 @@ let projects = {
       $(".project-entry:last").append(formattedProjectDescription);
 
       if (project.images.length > 0) {
-        for (let image of project.images) {
-          const formattedProjectImage = HTMLprojectImage.replace("%data%", project.image);
-          $(".project-entry:last").append(formattedProjectImage);
-        }
+        const formattedProjectImage = HTMLprojectImage.replace("%data%", project.images);
+        $(".project-entry:last").append(formattedProjectImage);
       }
     }
   }
